@@ -1,0 +1,7 @@
+AppBundle\Entity\Student:
+  student_{1..10}:
+    name: <student()>
+
+AppBundle\Entity\Race:
+
+AppBundle\Entity\State:
