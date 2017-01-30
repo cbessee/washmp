@@ -1,0 +1,230 @@
+{{ form_start(studentForm) }}
+<div class="form-body row">
+    <h3 class="col-md-12">Student Basic Info</h3>
+    <div class="col-md-5 ">
+        {{ form_row(studentForm.firstName, {
+            'label': 'First Name',
+        }) }}
+    </div>
+    <div class="col-md-2 ">
+        {{ form_row(studentForm.middleInitial, {
+            'label': 'M.I.',
+        }) }}
+    </div>
+    <div class="col-md-5 ">
+        {{ form_row(studentForm.lastName, {
+            'label': 'Last Name',
+        }) }}
+    </div>
+    <div class="col-md-3 ">
+        {{ form_row(studentForm.stateStudentID, {
+            'label': 'State Student ID#',
+        }) }}
+    </div>
+    <div class="col-md-3 ">
+        {{ form_row(studentForm.birthDate, {
+            'label': 'Date of Birth'
+        }) }}
+    </div>
+    <div class="col-md-3 ">
+        {{ form_row(studentForm.email) }}
+    </div>
+    <div class="col-md-3 ">
+        {{ form_row(studentForm.phoneNumber, {
+            'label': 'Phone Number'
+        }) }}
+    </div>
+    <div class="col-md-12 ">
+        {{ form_row(studentForm.streetAddress, {
+            'label': 'Street Address',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.city) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.state) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.zipCode, {
+            'label': 'Zipcode'
+        }) }}
+    </div>
+    <div class="col-md-4">
+        {{ form_row(studentForm.gender) }}
+    </div>
+    <div class="col-md-4">
+        {{ form_row(studentForm.ethnicity) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.race) }}
+    </div>
+    <h3 class="col-md-12">Primary Guardian Info</h3>
+    <div class="col-md-5 ">
+        {{ form_row(studentForm.primaryGuardianFirstName, {
+            'label': 'First Name',
+        }) }}
+    </div>
+    <div class="col-md-2 ">
+        {{ form_row(studentForm.primaryGuardianMiddleInitial, {
+            'label': 'M.I.',
+        }) }}
+    </div>
+    <div class="col-md-5 ">
+        {{ form_row(studentForm.primaryGuardianLastName, {
+            'label': 'Last Name',
+        }) }}
+    </div>
+    <div class="col-md-12 ">
+        {{ form_row(studentForm.primaryGuardianAddress, {
+            'label': 'Street Address',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.primaryGuardianCity, {
+            'label': 'City',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.primaryGuardianState, {
+            'label': 'State',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.primaryGuardianZipCode, {
+            'label': 'Zipcode',
+        }) }}
+    </div>
+    <div class="col-md-6 ">
+        {{ form_row(studentForm.primaryGuardianEmail, {
+            'label': 'Email',
+        }) }}
+    </div>
+    <div class="col-md-6 ">
+        {{ form_row(studentForm.primaryGuardianPhone, {
+            'label': 'Phone',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.primaryGuardianOccupation, {
+            'label': 'Occupation',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.primaryGuardianEmployer, {
+            'label': 'Employer',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.primaryGuardianIsCollegeGraduate, {
+            'label': "Is this guardian a college graduate?"
+        }) }}
+    </div>
+    <h3 class="col-md-12">Secondary Guardian Info</h3>
+    <div class="col-md-5 ">
+        {{ form_row(studentForm.secondaryGuardianFirstName, {
+            'label': 'First Name',
+        }) }}
+    </div>
+    <div class="col-md-2 ">
+        {{ form_row(studentForm.secondaryGuardianMiddleInitial, {
+            'label': 'M.I.',
+        }) }}
+    </div>
+    <div class="col-md-5 ">
+        {{ form_row(studentForm.secondaryGuardianLastName, {
+            'label': 'Last Name',
+        }) }}
+    </div>
+    <div class="col-md-12 ">
+        {{ form_row(studentForm.secondaryGuardianAddress, {
+            'label': 'Street Address',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.secondaryGuardianCity, {
+            'label': 'City',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.secondaryGuardianState, {
+            'label': 'State',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.secondaryGuardianZipCode, {
+            'label': 'Zipcode',
+        }) }}
+    </div>
+    <div class="col-md-6 ">
+        {{ form_row(studentForm.secondaryGuardianEmail, {
+            'label': 'Email',
+        }) }}
+    </div>
+    <div class="col-md-6 ">
+        {{ form_row(studentForm.secondaryGuardianPhone, {
+            'label': 'Phone',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.secondaryGuardianOccupation, {
+            'label': 'Occupation',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.secondaryGuardianEmployer, {
+            'label': 'Employer',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.secondaryGuardianIsCollegeGraduate, {
+            'label': 'Is this guardian a college graduate?'
+        }) }}
+    </div>
+    <h3 class="col-md-12">Home & Access Info</h3>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.freeReducedLunch, {
+            'label': "Are you elidgeable for free/reduced lunch?"
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.homeComputerAccess, {
+            'label': "Do you have computer access at home?"
+        }) }}
+    </div>
+    <div class="col-md-4">
+        {{ form_row(studentForm.homeInternetAccess, {
+            'label': "Do you have internet access at home?"
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.homeNonEnglishLanguage, {
+            'label' : "Is a language other than English spoken in your home?"
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(studentForm.householdSize, {
+            'label': 'What is your household size?'
+        }) }}
+    </div>
+</div>
+{% if app.request.get('_route') != 'view_student' %}
+<div class="form-actions">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-9">
+                <button class="btn btn-circle green" type="submit" formnovalidate>Save</button>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{{ form_end(studentForm) }}
+{% if app.request.get('_route') == 'view_student' %}
+<div class="form-actions">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-9">
+            <a href="{{ path('edit_student', {'id': student.id }) }}"><button class="btn btn-circle green" ><i class="fa fa-pencil"></i> Edit</button></a>
+        </div>
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,39 @@
+{%  extends 'base.html.twig' %}
+
+{% form_theme studentForm 'forms/rows.html.twig' %}
+
+{%  block body %}
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="{{ path('homepage') }}">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{{ path('view_student', {'id': student.id}) }}">{{ student.firstName }} {{ student.LastName }}</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{{ path('edit_student', {'id': student.id}) }}">Edit</a>
+            </li>
+        </ul>
+    </div>
+    <h1 class="page-title">Edit {{ student.firstName }} {{ student.LastName }} <small>SSID# {{ student.stateStudentID }}</small></h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box red-mint">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-user"></i>
+                        <span class="caption-subject bold uppercase">Student Info</span>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    {{ include('forms/studentForm.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%  endblock %}
