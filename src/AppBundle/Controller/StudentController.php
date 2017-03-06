@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
 use AppBundle\Form\StudentFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -15,15 +16,26 @@ class StudentController extends Controller
      */
     public function listAction(Request $request)
     {
-        return $this->render('student/list.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $students = $em->getRepository('AppBundle:Student')->findAll();
+        return $this->render('student/list.html.twig', [
+            'students' => $students,
+        ]);
     }
 
     /**
-     * @Route("students/{search}", name="search_students")
+     * @Route("students/search", name="search_students")
      */
-    public function searchAction(Request $request, $search)
+    public function searchAction(Request $request)
     {
-        return $this->render('student/list.html.twig');
+        $search = $request->query->get('search');
+        $em = $this->getDoctrine()->getManager();
+        $students = $em->getRepository('AppBundle:Student')->searchAll($search);
+
+        return $this->render('student/list.html.twig', [
+            'search_string' => $search,
+            'students' => $students,
+        ]);
     }
 
     /**

@@ -1,0 +1,26 @@
+<?php
+
+namespace AppBundle\Form;
+
+use AppBundle\Entity\Activity;
+use AppBundle\Repository\ActivityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class ActivityFormType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('activity');
+    }
+
+    public function  configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\Activity'
+        ]);
+    }
+}

@@ -1,0 +1,27 @@
+{{ form_start(schoolForm) }}
+<div class="form-body row">
+    <h3 class="col-md-12">School Info</h3>
+    <div class="col-md-6">
+        {{ form_row(schoolForm.schoolName, {
+            'label': 'School Name',
+        }) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_row(schoolForm.schoolID, {
+            'label': 'School ID',
+        }) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_row(schoolForm.district, {
+            'label': 'School District',
+        }) }}
+    </div>
+</div>
+<div class="form-actions">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-circle green" type="submit" formnovalidate>Save</button>
+        </div>
+    </div>
+</div>
+{{ form_end(schoolForm) }}

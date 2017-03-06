@@ -37,20 +37,20 @@
                     <div class="table-scrollable">
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th>DOB</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Address</th>
-                                </tr>
+                            <tr>
+                                <th>DOB</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>{{ student.birthDate|date('m/d/Y') }}</td>
-                                    <td>{{ student.email }}</td>
-                                    <td>{{ student.phoneNumber }}</td>
-                                    <td>{{ student.streetAddress }}, {{ student.city }}, {{ student.state }}</td>
-                                </tr>
+                            <tr>
+                                <td>{{ student.birthDate|date('m/d/Y') }}</td>
+                                <td>{{ student.email }}</td>
+                                <td>{{ student.phoneNumber }}</td>
+                                <td>{{ student.streetAddress }}, {{ student.city }}, {{ student.state }}</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>

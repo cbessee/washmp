@@ -1,0 +1,22 @@
+{{ form_start(centerForm) }}
+<div class="form-body row">
+    <h3 class="col-md-12">Center Info</h3>
+    <div class="col-md-6">
+        {{ form_row(centerForm.centerName, {
+            'label': 'Center Name',
+        }) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_row(centerForm.centerAbbr, {
+            'label': 'Center Abbreviation',
+        }) }}
+    </div>
+</div>
+<div class="form-actions">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-circle green" type="submit" formnovalidate>Save</button>
+        </div>
+    </div>
+</div>
+{{ form_end(centerForm) }}

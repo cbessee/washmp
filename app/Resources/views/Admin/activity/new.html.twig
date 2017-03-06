@@ -1,0 +1,41 @@
+{%  extends 'base.html.twig' %}
+
+{% form_theme activityForm 'forms/rows.html.twig' %}
+
+{%  block body %}
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="{{ path('homepage') }}">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="">Admin</a>
+            </li>
+            <li>
+                <a href="{{ path('list_activities') }}">Activities</a>
+            </li>
+            <li>
+                <a href="{{ path('new_activity') }}">New Activity</a>
+            </li>
+        </ul>
+    </div>
+    <h1 class="page-title">New Activity <small>Add a Activity to the MESA Database</small></h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box red-mint">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-user"></i>
+                        <span class="caption-subject bold uppercase">Activity Info</span>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                   {{ include('forms/activityForm.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%  endblock %}

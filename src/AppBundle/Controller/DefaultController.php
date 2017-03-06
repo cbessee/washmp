@@ -19,6 +19,15 @@ class DefaultController extends Controller
 
     /**
      * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/admin", name="admin")
+     */
+    public function adminAction(Request $request) {
+        return $this->render('Admin/index.html.twig');
+    }
+
+    /**
+     * @param Request $request
      * @param $searchTerm
      * @Route("/search/{searchTerm}", name="search")
      */

@@ -4,12 +4,16 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use AppBundle\Repository\StudentRepository;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\StudentRepository")
- * @ORM\Table(name="student")
+ * @ORM\Table(name="Student")
+ * @UniqueEntity("stateStudentID")
  */
 class Student
 {
@@ -46,6 +50,7 @@ class Student
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank()
      */
     private $birthDate;
 
@@ -275,9 +280,15 @@ class Student
      */
     private $secondaryGuardianIsCollegeGraduate = null;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\K12AIF", mappedBy="student")
+     */
+    private $K12AIFs;
+
     public function __construct()
     {
         $this->dateCreated = new \DateTime();
+        $this->K12AIFs = new ArrayCollection();
     }
 
     /**
@@ -318,6 +329,10 @@ class Student
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
+    }
+
+    public function getFullName() {
+        return $this->firstName . ' ' . $this->lastName;
     }
 
     /**
@@ -990,6 +1005,22 @@ class Student
     public function setSecondaryGuardianIsCollegeGraduate($secondaryGuardianIsCollegeGraduate)
     {
         $this->secondaryGuardianIsCollegeGraduate = $secondaryGuardianIsCollegeGraduate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getK12AIFs()
+    {
+        return $this->K12AIFs;
+    }
+
+    /**
+     * @param mixed $K12AIFs
+     */
+    public function setK12AIFs($K12AIFs)
+    {
+        $this->K12AIFs = $K12AIFs;
     }
 
 }

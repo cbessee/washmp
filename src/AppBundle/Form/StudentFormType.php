@@ -26,7 +26,8 @@ class StudentFormType extends AbstractType
                 'required' => false,
             ])
             ->add('lastName')
-            ->add('stateStudentID')
+            ->add('stateStudentID', null, [
+            ])
             ->add('birthDate', null, [
                 'widget' => 'single_text',
                 'format' => 'MM/dd/yyyy',
