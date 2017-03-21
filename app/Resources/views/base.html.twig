@@ -154,29 +154,86 @@
                                 </a>
                             </li>
                             {% if app.user %}
-                            <li class="nav-item  ">
+                           <li class="nav-item  ">
                                 <a href="{{ path('list_students') }}" class="nav-link">
                                     <i class="icon-user"></i>
                                     <span class="title">Students</span>
                                 </a>
                             </li>
                             {% endif %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li class="heading">
+                                    <h3 class="uppercase">Admin</h3>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="icon-diamond"></i>
+                                        <span class="title">Table Management</span>
+                                        <span class="arrow"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                       <li class="nav-item">
+                                            <a href="{{ path('list_centers') }}" class="nav-link">
+                                                <span class="title">Centers</span>
+                                            </a>
+                                       </li>
+                                       <li class="nav-item">
+                                            <a href="{{ path('list_districts') }}" class="nav-link">
+                                                <span class="title">Districts</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  ">
+                                            <a href="{{ path('list_schools') }}" class="nav-link">
+                                                <span class="title">Schools</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  ">
+                                            <a href="{{ path('list_teachers') }}" class="nav-link">
+                                                <span class="title">Teachers</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item  ">
+                                            <a href="{{ path('list_careers') }}" class="nav-link">
+                                                <span class="title">Career Paths</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item  ">
+                                            <a href="{{ path('list_activities') }}" class="nav-link">
+                                                <span class="title">After School Activities</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item ">
+                                            <a href="{{ path('list_activities') }}" class="nav-link">
+                                                <span class="title">State Courses</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item  ">
+                                            <a href="{{ path('list_activities') }}" class="nav-link">
+                                                <span class="title">State Course Subjects</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% endif %}
                         </ul>
-                        <!-- END SIDEBAR MENU -->
-                        <!-- END SIDEBAR MENU -->
+                        <!-- end sidebar menu -->
+                        <!-- end sidebar menu -->
                     </div>
-                    <!-- END SIDEBAR -->
+                    <!-- end sidebar -->
                 </div>
-                <!-- END SIDEBAR -->
+                <!-- end sidebar -->
             {%  endblock %}
             <div class="page-content-wrapper">
                 <div class="page-content">
-                    {% for msg in app.session.flashBag.get('error') %}
+                    {% for msg in app.session.flashbag.get('error') %}
                         <div class="alert alert-danger">
                             {{ msg }}
                         </div>
                     {%  endfor %}
-                    {% for msg in app.session.flashBag.get('success') %}
+                    {% for msg in app.session.flashbag.get('success') %}
                         <div class="alert alert-success">
                             {{ msg }}
                         </div>
@@ -189,27 +246,27 @@
             </div>
         </div>
         {% block footer %}
-            <!-- BEGIN FOOTER -->
+            <!-- begin footer -->
             <div class="page-footer">
-                <div class="page-footer-inner"> 2016 © Metronic |
-                    <a href="https://www.washingtonmesa.org/">WA Mesa</a>
+                <div class="page-footer-inner"> 2016 © metronic |
+                    <a href="https://www.washingtonmesa.org/">wa mesa</a>
                 </div>
                 <div style="display: block;" class="scroll-to-top">
                     <i class="icon-arrow-up"></i>
                 </div>
             </div>
-            <!-- END FOOTER -->
+            <!-- end footer -->
         {% endblock %}
         </div>
         {% block javascripts %}
-            <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-            <!-- BEGIN CORE PLUGINS -->
-            <!--[if lt IE 9]>
+            <!-- begin javascripts(load javascripts at bottom, this will reduce page load time) -->
+            <!-- begin core plugins -->
+            <!--[if lt ie 9]>
             <script src="{{ asset('/global/plugins/respond.min.js') }}"></script>
             <script src="{{ asset('/global/plugins/excanvas.min.js') }}"></script>
             <![endif]-->
             <script src="{{ asset('/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
-            <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+            <!-- important! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
             <script src="{{ asset('/global/plugins/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
             <script src="{{ asset('/global/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
             <script src="{{ asset('/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
