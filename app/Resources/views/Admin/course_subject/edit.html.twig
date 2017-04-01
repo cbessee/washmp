@@ -1,0 +1,43 @@
+{%  extends 'base.html.twig' %}
+
+{% form_theme courseSubjectForm 'forms/rows.html.twig' %}
+
+{%  block body %}
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="{{ path('homepage') }}">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{{ path('admin') }}">Admin</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{{ path('list_course_subjects') }}">Teachers</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{{ path('edit_course_subject', {'id': course_subject.subjectID}) }}">Edit {{ course_subject.subjectArea }}</a>
+            </li>
+        </ul>
+    </div>
+    <h1 class="page-title">Edit {{ course_subject.subjectArea }} </h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box red-mint">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-building"></i>
+                        <span class="caption-subject bold uppercase">Course Subject Info</span>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    {{ include('forms/courseSubjectForm.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%  endblock %}

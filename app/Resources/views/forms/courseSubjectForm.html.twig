@@ -1,0 +1,17 @@
+{{ form_start(courseSubjectForm) }}
+<div class="form-body row">
+    <h3 class="col-md-12">Subject Area Info</h3>
+    <div class="col-md-6">
+        {{ form_row(courseSubjectForm.subjectArea, {
+            'label': 'Subject Area',
+        }) }}
+    </div>
+</div>
+<div class="form-actions">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-circle green" type="submit" formnovalidate>Save</button>
+        </div>
+    </div>
+</div>
+{{ form_end(courseSubjectForm) }}
