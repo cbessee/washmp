@@ -8,12 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Activity;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class ActivityController extends Controller
 {
     /**
      * @param Request $request
      * @Route("admin/activities/", name="list_activities")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function listAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
@@ -26,6 +28,7 @@ class ActivityController extends Controller
     /**
      * @param Request $request
      * @Route("admin/activity/new", name="new_activity")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function newAction(Request $request) {
         $form = $this->createForm(ActivityFormType::class);
@@ -60,6 +63,7 @@ class ActivityController extends Controller
      * @param Request $request
      * @param Activity $activity
      * @Route("admin/activity/{id}/edit", name="edit_activity")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function editAction(Request $request, Activity $activity) {
         $form = $this->createForm(ActivityFormType::class, $activity);
@@ -95,6 +99,7 @@ class ActivityController extends Controller
      * @param Request $request
      * @param Activity $activity
      * @Route("admin/activity/{id}/delete", name="delete_activity")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function deleteAction(Request $request, Activity $activity) {
         $em = $this->getDoctrine()->getManager();

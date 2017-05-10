@@ -8,11 +8,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Student;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class StudentController extends Controller
 {
     /**
      * @Route("students/", name="list_students")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function listAction(Request $request)
     {
@@ -25,6 +27,7 @@ class StudentController extends Controller
 
     /**
      * @Route("students/search", name="search_students")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function searchAction(Request $request)
     {
@@ -40,6 +43,7 @@ class StudentController extends Controller
 
     /**
      * @Route("student/new", name="new_student")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function newAction(Request $request)
     {
@@ -75,11 +79,13 @@ class StudentController extends Controller
 
     /**
      * @Route("/student/{id}", name="show_student")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function showAction(Request $request, Student $student)
     {
         return $this->render('student/show.html.twig', [
-            'student' => $student
+            'student' => $student,
+            'aifForms' => $student->getK12AIFs(),
         ]);
     }
 
@@ -87,6 +93,7 @@ class StudentController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/student/{id}/view", name="view_student")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function viewAction(Request $request, Student $student)
     {
@@ -99,6 +106,7 @@ class StudentController extends Controller
 
     /**
      * @Route("student/{id}/edit", name="edit_student")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function editAction(Request $request, Student $student)
     {

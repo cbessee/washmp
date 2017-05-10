@@ -8,12 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\K12Center;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class CenterController extends Controller
 {
     /**
      * @param Request $request
      * @Route("admin/centers/", name="list_centers")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function listAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
@@ -26,6 +28,7 @@ class CenterController extends Controller
     /**
      * @param Request $request
      * @Route("admin/center/new", name="new_center")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function newAction(Request $request) {
         $form = $this->createForm(K12CenterFormType::class);
@@ -60,6 +63,7 @@ class CenterController extends Controller
      * @param Request $request
      * @param K12Center $center
      * @Route("admin/center/{id}/edit", name="edit_center")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function editAction(Request $request, K12Center $center) {
         $form = $this->createForm(K12CenterFormType::class, $center);
@@ -95,6 +99,7 @@ class CenterController extends Controller
      * @param Request $request
      * @param K12Center $center
      * @Route("admin/center/{id}/delete", name="delete_center")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function deleteAction(Request $request, K12Center $center) {
         $em = $this->getDoctrine()->getManager();

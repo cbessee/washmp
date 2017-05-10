@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class DefaultController extends Controller
 {
@@ -13,7 +14,6 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
         return $this->render('default/index.html.twig');
     }
 
@@ -21,6 +21,7 @@ class DefaultController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/admin", name="admin")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function adminAction(Request $request) {
         return $this->render('Admin/index.html.twig');
@@ -30,6 +31,7 @@ class DefaultController extends Controller
      * @param Request $request
      * @param $searchTerm
      * @Route("/search/{searchTerm}", name="search")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function searchAction(Request $request, $searchTerm)
     {

@@ -50,4 +50,10 @@ class AcademicYear
         $this->academicYearRange = $academicYearRange;
     }
 
+    function __toString()
+    {
+        return $this->getAcademicYearRange();
+    }
+
+
 }

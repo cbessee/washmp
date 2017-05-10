@@ -6,6 +6,7 @@ use AppBundle\AppBundle;
 use AppBundle\Entity\CareerCluster;
 use AppBundle\Form\CareerClusterFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -14,6 +15,7 @@ class CareerController extends Controller
     /**
      * @param Request $request
      * @Route("admin/careers/", name="list_careers")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function listAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
@@ -26,6 +28,7 @@ class CareerController extends Controller
     /**
      * @param Request $request
      * @Route("admin/career/new", name="new_career")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function newAction(Request $request) {
         $form = $this->createForm(CareerClusterFormType::class);
@@ -60,6 +63,7 @@ class CareerController extends Controller
      * @param Request $request
      * @param CareerCluster $career
      * @Route("admin/career/{id}/edit", name="edit_career")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function editAction(Request $request, CareerCluster $career) {
         $form = $this->createForm(CareerClusterFormType::class, $career);
@@ -95,6 +99,7 @@ class CareerController extends Controller
      * @param Request $request
      * @param Career $career
      * @Route("admin/career/{id}/delete", name="delete_career")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function deleteAction(Request $request, CareerCluster $career) {
         $em = $this->getDoctrine()->getManager();

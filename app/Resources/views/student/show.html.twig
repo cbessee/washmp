@@ -68,10 +68,46 @@
                         <span class="caption-subject bold uppercase">AIF Forms</span>
                     </div>
                     <div class="actions">
+                        <a href="{{ path('new_aif', {'id': student.id}) }}" class="btn btn-circle btn-default">
+                            <i class="fa fa-bars"></i>
+                            New AIF
+                        </a>
                     </div>
                 </div>
                 <div class="portlet-body">
-
+                    <div class="table-scrollable">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Center</th>
+                                <th>School</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {%  if aifForms %}
+                                    {% for form in aifForms %}
+                                        <tr>
+                                            <td>{{ form.currentAcademicYear }}</td>
+                                            <td>{{ form.center }}</td>
+                                            <td>{{ form.school }}</td>
+                                            <td>
+                                                <a href="{{ path('show_aif_form', {'id': student.id, 'aif_id': form.k12AifID}) }}" class="btn btn-circle btn-default">
+                                                    <i class="fa fa-user"></i>
+                                                    View AIF Details
+                                                </a>
+                                                <a href="{{ path('edit_aif_form', {'id': student.id, 'aif_id': form.k12AifID}) }}" class="btn btn-circle btn-default">
+                                                    <i class="fa fa-pencil"></i>
+                                                    Edit
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
 
 
                 </div>

@@ -1,0 +1,102 @@
+{{ form_start(annualIntakeForm) }}
+<div class="form-body row">
+    <h3 class="col-md-12">Annual Intake Form</h3>
+    {{ form_row(annualIntakeForm.student, {
+        'label': 'Student',
+    }) }}
+    <div class="col-md-6 ">
+        {{ form_row(annualIntakeForm.currentAcademicYear, {
+            'label': 'Academic Year',
+        }) }}
+    </div>
+    <div class="col-md-6 ">
+        {{ form_row(annualIntakeForm.center, {
+            'label': 'MESA Center',
+        }) }}
+    </div>
+    <div class="col-md-12 ">
+        {{ form_row(annualIntakeForm.activities, {
+            'label': 'Which MESA activities is this student participating in? (Check all that apply)',
+        }) }}
+    </div>
+    <div class="col-md-3">
+        {{ form_row(annualIntakeForm.teacher, {
+            'label': 'Teacher',
+        }) }}
+    </div>
+    <div class="col-md-3 ">
+        {{ form_row(annualIntakeForm.school, {
+            'label': 'School',
+        }) }}
+    </div>
+    <div class="col-md-3 ">
+        {{ form_row(annualIntakeForm.grade, {
+            'label': 'Current Grade Level',
+        }) }}
+    </div>
+    <div class="col-md-3 ">
+        {{ form_row(annualIntakeForm.GPA, {
+            'label': 'Grade Point Average',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(annualIntakeForm.mathCourse, {
+            'label': 'Current Math Course',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(annualIntakeForm.scienceCourse, {
+            'label': 'Current Science Course',
+        }) }}
+    </div>
+    <div class="col-md-4 ">
+        {{ form_row(annualIntakeForm.englishCourse, {
+            'label': 'Current English Course',
+        }) }}
+    </div>
+    <div class="col-md-3">
+        {{ form_row(annualIntakeForm.PSAT, {
+            'label': 'Has this student taken the PSAT?',
+        }) }}
+    </div>
+    <div class="col-md-3 ">
+        {{ form_row(annualIntakeForm.SAT, {
+            'label': 'Has this student taken the SAT?',
+        }) }}
+    </div>
+    <div class="col-md-3 ">
+        {{ form_row(annualIntakeForm.ACT, {
+            'label': 'Has this student taken the ACT?',
+        }) }}
+    </div>
+    <div class="col-md-3 ">
+        {{ form_row(annualIntakeForm.collegeGoal, {
+            'label': 'College Goal',
+        }) }}
+    </div>
+    <div class="col-md-12 ">
+        {{ form_row(annualIntakeForm.careers, {
+            'label': 'Career Clusters (Check 1-2 the student is interested in)',
+        }) }}
+    </div>
+</div>
+{% if app.request.get('_route') != 'show_aif_form' %}
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+                <button class="btn btn-circle green" type="submit" formnovalidate>Save</button>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{{ form_end(annualIntakeForm) }}
+{% if app.request.get('_route') == 'show_aif_form' %}
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+                <a href="{{ path('edit_aif_form', {'id': student.id, 'aif_id': aif.k12aifid}) }}"><button class="btn btn-circle green" ><i class="fa fa-pencil"></i> Edit</button></a>
+            </div>
+        </div>
+    </div>
+{% endif %}

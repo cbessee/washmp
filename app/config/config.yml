@@ -45,6 +45,14 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: AppBundle\Entity\User
+    registration:
+            form:
+                name: mesaportal_user_registration
+                type: AppBundle\Form\UserRegistrationFormType
+    profile:
+            form:
+                type: AppBundle\Form\UserProfileFormType
+                name: mesaportal_user_profile
 
 # Doctrine Configuration
 doctrine:
@@ -70,8 +78,6 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
+    transport: gmail
     username:  "%mailer_user%"
     password:  "%mailer_password%"
-    spool:     { type: memory }

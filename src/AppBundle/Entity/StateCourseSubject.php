@@ -49,4 +49,10 @@ class StateCourseSubject
         $this->subjectArea = $subjectArea;
     }
 
+    function __toString()
+    {
+        return $this->getSubjectArea();
+    }
+
+
 }

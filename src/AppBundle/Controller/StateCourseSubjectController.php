@@ -8,12 +8,14 @@ use AppBundle\Form\StateCourseSubjectFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class StateCourseSubjectController extends Controller
 {
     /**
      * @param Request $request
      * @Route("admin/course_subjects/", name="list_course_subjects")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function listAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
@@ -26,6 +28,7 @@ class StateCourseSubjectController extends Controller
     /**
      * @param Request $request
      * @Route("admin/course_subject/new", name="new_course_subject")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function newAction(Request $request) {
         $form = $this->createForm(StateCourseSubjectFormType::class);
@@ -60,6 +63,7 @@ class StateCourseSubjectController extends Controller
      * @param Request $request
      * @param StateCourseSubject $course_subject
      * @Route("admin/course_subject/{id}/edit", name="edit_course_subject")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function editAction(Request $request, StateCourseSubject $course_subject) {
         $form = $this->createForm(StateCourseSubjectFormType::class, $course_subject);
@@ -95,6 +99,7 @@ class StateCourseSubjectController extends Controller
      * @param Request $request
      * @param StateCourseSubject $course_subject
      * @Route("admin/course_subject/{id}/delete", name="delete_course_subject")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function deleteAction(Request $request, StateCourseSubject $course_subject) {
         $em = $this->getDoctrine()->getManager();

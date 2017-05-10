@@ -94,4 +94,10 @@ class K12School
         $this->schoolID = $schoolID;
     }
 
+    function __toString()
+    {
+        return $this->getSchoolName();
+    }
+
+
 }

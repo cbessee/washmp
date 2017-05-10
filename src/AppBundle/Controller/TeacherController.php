@@ -8,12 +8,14 @@ use AppBundle\Form\TeacherFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class TeacherController extends Controller
 {
     /**
      * @param Request $request
      * @Route("admin/teachers/", name="list_teachers")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function listAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
@@ -26,6 +28,7 @@ class TeacherController extends Controller
     /**
      * @param Request $request
      * @Route("admin/teacher/new", name="new_teacher")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function newAction(Request $request) {
         $form = $this->createForm(TeacherFormType::class);
@@ -60,6 +63,7 @@ class TeacherController extends Controller
      * @param Request $request
      * @param Teacher $teacher
      * @Route("admin/teacher/{id}/edit", name="edit_teacher")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function editAction(Request $request, Teacher $teacher) {
         $form = $this->createForm(TeacherFormType::class, $teacher);
@@ -95,6 +99,7 @@ class TeacherController extends Controller
      * @param Request $request
      * @param Teacher $teacher
      * @Route("admin/teacher/{id}/delete", name="delete_teacher")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function deleteAction(Request $request, Teacher $teacher) {
         $em = $this->getDoctrine()->getManager();

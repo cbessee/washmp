@@ -1,0 +1,43 @@
+{%  extends 'base.html.twig' %}
+
+{% form_theme academicYearForm 'forms/rows.html.twig' %}
+
+{%  block body %}
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="{{ path('homepage') }}">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{{ path('admin') }}">Admin</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{{ path('list_academic_years') }}">Teachers</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{{ path('edit_academic_year', {'id': academicYear.academicYearID}) }}">Edit {{ academicYear.academicYearRange }}</a>
+            </li>
+        </ul>
+    </div>
+    <h1 class="page-title">Edit {{ academicYear.academicYearRange }} </h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box red-mint">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-building"></i>
+                        <span class="caption-subject bold uppercase">Academic Year Info</span>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    {{ include('forms/academicYearForm.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%  endblock %}

@@ -3,4 +3,32 @@
 {% block body %}
     <div class="page-bar"></div>
     <h1 class="page-title">Welcome to the WA Mesa Portal!</h1>
+
+    {% if not app.user %}
+        <a href="/register" class="btn blue">Request an Account</a>
+        <a href="/login" class="btn blue">Log In</a>
+    {% endif %}
+
+    {% if app.user %}
+        <h2>Family Educational Rights and Privacy Act (FERPA)&mdash;User Acceptance Statement</h2>
+
+        <p>The Family Educational Rights and Privacy Act (FERPA) is a Federal law that protects the privacy of student education records. It gives students and their parents the right to access their education records, request to amend, and control over the record disclosure With several exceptions, a school can disclose personal information only if it gets the signed approval of the parent or student (if over 18 years of age). FERPA rights are transferred to the student when he/she reaches the age of 18. FERPA is enacted to ensure the confidentiality, integrity, and accuracy of personal student information.</p>
+
+        <p>The records that FERPA is applied to are called education records. An education record is a record: “(1) directly related to a student; and (2) maintained by an educational agency or institution, or by a party acting for the agency or institution. This includes any information recorded in any way including, but not limited to, handwriting, print, computer media, video or audio tape, film, microfilm, and microfiche.” [2] An education record is not a sole possession or private note by a school official that is not accessible to other school personnel, law enforcement or campus security records, records relating to employees, treatment/medical records, or alumni record (a record for an ex-student ).</p>
+
+        <p>As a consumer, steward, and curator of MESA student data, you agree to maintain proper IT security protocols and procedures related to access, and storage of student data. All student data that is downloaded from the data warehouse must not be stored on individual systems that are subject to security breaches and must be destroyed within 30 days of usage. Downloaded data files must be encrypted upon storage. Each time you logon to the MESA Data Warehouse, this first page will remind you of your FERPA obligations. Your choice to move beyond this first page means that you acknowledge and accept those obligations.</p>
+
+        <h4>For more information on FERPA</h4>
+
+        <ul>
+
+            <li><a class="ferpa-link" title="Government FERPA Site" href="http://www2.ed.gov/policy/gen/reg/ferpa/index.html?exp=8" target="_blank">http://www2.ed.gov/policy/gen/reg/ferpa/index.html?exp=8</a></li>
+
+            <li><a class="ferpa-link" title="Government FERPA Regulations" href="http://www2.ed.gov/policy/gen/guid/fpco/pdf/ferparegs.pdf" target="_blank">http://www2.ed.gov/policy/gen/guid/fpco/pdf/ferparegs.pdf</a></li>
+
+            <li><a class="ferpa-link" title="UW FERPA Link" href="http://www.washington.edu/students/reg/ferpa.html" target="_blank">http://www.washington.edu/students/reg/ferpa.html</a></li>
+
+        </ul>
+    {% endif %}
+
 {% endblock %}

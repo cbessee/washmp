@@ -21,16 +21,10 @@ class K12Grade
 
     /**
      * @Assert\NotBlank()
-     * @Assert\Range(min="1", max="12")
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $grade;
 
-    /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string")
-     */
-    private $schoolLevel;
 
     /**
      * @return mixed
@@ -56,19 +50,8 @@ class K12Grade
         $this->grade = $grade;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSchoolLevel()
+    public function __toString()
     {
-        return $this->schoolLevel;
-    }
-
-    /**
-     * @param mixed $schoolLevel
-     */
-    public function setSchoolLevel($schoolLevel)
-    {
-        $this->schoolLevel = $schoolLevel;
+        return $this->getGrade();
     }
 }

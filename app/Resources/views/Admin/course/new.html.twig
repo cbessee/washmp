@@ -1,6 +1,6 @@
 {%  extends 'base.html.twig' %}
 
-{% form_theme teacherForm 'forms/rows.html.twig' %}
+{% form_theme courseForm 'forms/rows.html.twig' %}
 
 {%  block body %}
     <div class="page-bar">
@@ -13,14 +13,14 @@
                 <a href="">Admin</a>
             </li>
             <li>
-                <a href="{{ path('list_teachers') }}">Teachers</a>
+                <a href="{{ path('list_courses') }}">Courses</a>
             </li>
             <li>
-                <a href="{{ path('new_teacher') }}">New Teacher</a>
+                <a href="{{ path('new_course') }}">New Course</a>
             </li>
         </ul>
     </div>
-    <h1 class="page-title">New Teacher <small>Add a Teacher to the MESA Database</small></h1>
+    <h1 class="page-title">New Course <small>Add a Course to the MESA Database</small></h1>
 
     <div class="row">
         <div class="col-md-12">
@@ -28,11 +28,11 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="fa fa-user"></i>
-                        <span class="caption-subject bold uppercase">Teacher Info</span>
+                        <span class="caption-subject bold uppercase">Course Info</span>
                     </div>
                 </div>
                 <div class="portlet-body form">
-                   {{ include('forms/teacherForm.html.twig') }}
+                   {{ include('forms/courseForm.html.twig') }}
                 </div>
             </div>
         </div>

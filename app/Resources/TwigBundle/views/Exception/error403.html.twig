@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="page-title">Access Denied: 403</h1>
+
+    <p>
+        Your user account does not have the necessary permissions to view this page or complete this action. Email the WA MESA site admin if you believe you need acccess
+    </p>
+    <p>
+        <a href="{{ path('homepage') }}">Return to the Homepage</a>, or <a href="javascript:history.back()">Go Back</a>.
+    </p>
+{% endblock %}

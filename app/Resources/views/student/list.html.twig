@@ -42,7 +42,8 @@
                             <tr>
                                 <th>Student Name</th>
                                 <th>SSID#</th>
-                                <th>Center?</th>
+                                <th>DID#</th>
+                                <th>Recent MESA Center</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -51,7 +52,8 @@
                             <tr>
                                 <td>{{ student.getFullName }}</td>
                                 <td>{{ student.stateStudentID }}</td>
-                                <td>{{ student.phoneNumber }}</td>
+                                <td>{{ student.districtStudentID }}</td>
+                                <td>{% if student.K12AIFs|last %}{{ student.K12AIFs|last.center }}{%  else %} N/A {% endif %}</td>
                                 <td>
                                     <a href="{{ path('view_student', {'id': student.id}) }}" class="btn btn-circle btn-default">
                                         <i class="fa fa-user"></i>

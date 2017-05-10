@@ -49,4 +49,10 @@ class CareerCluster
         $this->careerCluster = $careerCluster;
     }
 
+    function __toString()
+    {
+        return $this->getCareerCluster();
+    }
+
+
 }

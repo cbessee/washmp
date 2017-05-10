@@ -18,12 +18,12 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{{ path('list_teachers') }}">Teachers</a>
+                <a href="{{ path('list_courses') }}">Courses</a>
             </li>
         </ul>
     </div>
 
-    <h1 class="page-title">Teachers <small>View All Teachers</small></h1>
+    <h1 class="page-title">Courses <small>View All Courses</small></h1>
 
     <div class="row">
         <div class="col-md-12">
@@ -31,12 +31,12 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="fa fa-user"></i>
-                        <span class="caption-subject bold uppercase">Teachers</span>
+                        <span class="caption-subject bold uppercase">Courses</span>
                     </div>
                     <div class="actions">
-                        <a href="{{ path('new_teacher') }}" class="btn btn-circle btn-default">
+                        <a href="{{ path('new_course') }}" class="btn btn-circle btn-default">
                             <i class="fa fa-plus"></i>
-                            New Teacher
+                            New Course
                         </a>
                     </div>
                 </div>
@@ -44,22 +44,26 @@
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Course Name</th>
+                                <th>State Course Code</th>
+                                <th>Subject Area</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for teacher in teachers %}
+                            {% for course in courses %}
                             <tr>
-                                <td>{{ teacher.teacherName }}</td>
+                                <td>{{ course.courseName }}</td>
+                                <td>{{ course.stateCourseCode}}</td>
+                                <td>{{ course.subject }}</td>
                                 <td>
-                                    <a href="{{ path('edit_teacher', {'id': teacher.teacherID}) }}" class="btn btn-circle btn-default">
+                                    <a href="{{ path('edit_course', {'id': course.courseID}) }}" class="btn btn-circle btn-default">
                                         <i class="fa fa-pencil"></i>
-                                        Edit Teacher
+                                        Edit Course
                                     </a>
-                                    <a href="{{ path('delete_teacher', {'id': teacher.teacherID}) }}" class="btn btn-circle btn-default">
+                                    <a href="{{ path('delete_course', {'id': course.courseID}) }}" class="btn btn-circle btn-default">
                                         <i class="fa fa-ban"></i>
-                                        Delete Teacher
+                                        Delete Course
                                     </a>
                                 </td>
                             </tr>

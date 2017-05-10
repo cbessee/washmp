@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -39,21 +40,17 @@ class StateCourse
     private $subject;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $AP;
+    protected $dateCreated;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="date")
+     * StateCourse constructor.
      */
-    private $dateCreated;
-
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $dateInactive;
+    public function __construct()
+    {
+        $this->dateCreated = new DateTime();
+    }
 
     /**
      * @return mixed
@@ -114,22 +111,6 @@ class StateCourse
     /**
      * @return mixed
      */
-    public function getAP()
-    {
-        return $this->AP;
-    }
-
-    /**
-     * @param mixed $AP
-     */
-    public function setAP($AP)
-    {
-        $this->AP = $AP;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getDateCreated()
     {
         return $this->dateCreated;
@@ -138,25 +119,15 @@ class StateCourse
     /**
      * @param mixed $dateCreated
      */
-    public function setDateCreated($dateCreated)
+    public function setDateCreated(DateTime $dateCreated)
     {
         $this->dateCreated = $dateCreated;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDateInactive()
+    function __toString()
     {
-        return $this->dateInactive;
+        return $this->getCourseName() . ', ' . $this->getStateCourseCode();
     }
 
-    /**
-     * @param mixed $dateInactive
-     */
-    public function setDateInactive($dateInactive)
-    {
-        $this->dateInactive = $dateInactive;
-    }
 
 }

@@ -24,11 +24,15 @@ class Student
      */
     private $id;
 
-    /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="bigint", unique=true)
+   /**
+     * @ORM\Column(type="bigint", unique=true, nullable=true)
      */
     private $stateStudentID;
+
+    /**
+     * @ORM\Column(type="bigint", unique=true, nullable=true)
+     */
+    private $districtStudentID;
 
     /**
      * @Assert\NotBlank()
@@ -282,6 +286,7 @@ class Student
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\K12AIF", mappedBy="student")
+     * @ORM\OrderBy({"currentAcademicYear" = "ASC"})
      */
     private $K12AIFs;
 
@@ -1022,5 +1027,27 @@ class Student
     {
         $this->K12AIFs = $K12AIFs;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDistrictStudentID()
+    {
+        return $this->districtStudentID;
+    }
+
+    /**
+     * @param mixed $districtStudentID
+     */
+    public function setDistrictStudentID($districtStudentID)
+    {
+        $this->districtStudentID = $districtStudentID;
+    }
+
+    function __toString()
+    {
+        return $this->getFullName();
+    }
+
 
 }

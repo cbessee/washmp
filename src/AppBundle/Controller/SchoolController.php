@@ -8,12 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\K12School;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class SchoolController extends Controller
 {
     /**
      * @param Request $request
      * @Route("admin/schools/", name="list_schools")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function listAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
@@ -26,6 +28,7 @@ class SchoolController extends Controller
     /**
      * @param Request $request
      * @Route("admin/school/new", name="new_school")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function newAction(Request $request) {
         $form = $this->createForm(K12SchoolFormType::class);
@@ -60,6 +63,7 @@ class SchoolController extends Controller
      * @param Request $request
      * @param K12School $school
      * @Route("admin/school/{id}/edit", name="edit_school")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function editAction(Request $request, K12School $school) {
         $form = $this->createForm(K12SchoolFormType::class, $school);
@@ -95,6 +99,7 @@ class SchoolController extends Controller
      * @param Request $request
      * @param K12School $school
      * @Route("admin/school/{id}/delete", name="delete_school")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function deleteAction(Request $request, K12School $school) {
         $em = $this->getDoctrine()->getManager();

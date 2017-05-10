@@ -12,10 +12,19 @@ class StudentRepository extends EntityRepository
         return $this->createQueryBuilder('student')
             ->where('student.stateStudentID = :stateStudentID')
             ->setParameter('stateStudentID', $search)
-            ->orWhere("CONCAT(student.firstName, ' ', student.lastName) LIKE :name")
+            ->orWhere("CONCAT(student.firstName,' ',student.lastName) LIKE :name")
             ->setParameter('name', '%'.$search.'%')
+            ->orWhere('student.districtStudentID = :districtStudentID')
+            ->setParameter('districtStudentID', $search)
             ->getQuery()
             ->execute();
+    }
+
+    public function getStudentByID($ID)
+    {
+        return $this->createQueryBuilder('student')
+            ->where('student.id = :studentID')
+            ->setParameter('studentID', $ID);
     }
 
     public function getStudentBySSID($SSID)

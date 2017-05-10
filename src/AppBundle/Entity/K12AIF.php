@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\K12AIFRepository")
  * @ORM\Table(name="K12AIF")
+ * @ORM\HasLifecycleCallbacks()
  */
 class K12AIF
 {
@@ -19,23 +20,29 @@ class K12AIF
      */
     private $k12AifID;
 
-    /**
+   /**
      * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\K12Center")
+     * @ORM\JoinColumn(name="k12center_id", referencedColumnName="k12center_id", nullable=false)
+     */
+    private $center;
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Student", inversedBy="K12AIFs")
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id", nullable=false)
      */
     private $student;
 
-    /**
+   /**
      * @Assert\NotBlank()
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\K12School")
-     * @ORM\JoinColumn(name="k12school_id", referencedColumnName="k12school_id", nullable=false)
+    * @ORM\ManyToOne(targetEntity="AppBundle\Entity\K12School")
+    * @ORM\JoinColumn(name="k12school_id", referencedColumnName="k12school_id", nullable=false)
      */
     private $school;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Teacher")
+     * @ORM\JoinColumn(name="teacher_id", referencedColumnName="teacher_id", nullable=true)
      */
     private $teacher;
 
@@ -54,6 +61,24 @@ class K12AIF
     private $careers;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StateCourse")
+     * @ORM\JoinColumn(name="math_course_id", referencedColumnName="course_id", nullable=true)
+     */
+    private $mathCourse;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StateCourse")
+     * @ORM\JoinColumn(name="science_course_id", referencedColumnName="course_id", nullable=true)
+     */
+    private $scienceCourse;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\StateCourse")
+     * @ORM\JoinColumn(name="english_course_id", referencedColumnName="course_id", nullable=true)
+     */
+    private $englishCourse;
+
+    /**
      * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\AcademicYear")
      * @ORM\JoinColumn(name="academic_year_id", referencedColumnName="academic_year_id", nullable=false)
@@ -61,20 +86,17 @@ class K12AIF
     private $currentAcademicYear;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\K12Grade")
-     * @ORM\JoinColumn(name="k12grade_id", referencedColumnName="k12grade_id", nullable=false)
+     * @ORM\JoinColumn(name="k12grade_id", referencedColumnName="k12grade_id", nullable=true)
      */
     private $grade;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(type="float")
      */
     private $GPA;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $collegeGoal;
@@ -106,9 +128,28 @@ class K12AIF
 
     public function __construct()
     {
-        $this->dateCreated = new \DateTime();
         $this->activities = new ArrayCollection();
         $this->careers = new ArrayCollection();
+        $this->setDateCreated(new \DateTime());
+        if ($this->getDateModified() == null) {
+            $this->setDateModified(new \DateTime());
+        }
+    }
+
+    /**
+     * @param mixed $dateCreated
+     */
+    public function setDateCreated($dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function updateModifiedDate()
+    {
+        $this->setDateModified(new \DateTime());
     }
 
     /**
@@ -116,7 +157,7 @@ class K12AIF
      */
     public function getK12AIFID()
     {
-        return $this->k12AIFID;
+        return $this->k12AifID;
     }
 
     /**
@@ -343,6 +384,70 @@ class K12AIF
     public function getActivities()
     {
         return $this->activities;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCenter()
+    {
+        return $this->center;
+    }
+
+    /**
+     * @param mixed $center
+     */
+    public function setCenter($center)
+    {
+        $this->center = $center;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMathCourse()
+    {
+        return $this->mathCourse;
+    }
+
+    /**
+     * @param mixed $mathCourse
+     */
+    public function setMathCourse($mathCourse)
+    {
+        $this->mathCourse = $mathCourse;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getScienceCourse()
+    {
+        return $this->scienceCourse;
+    }
+
+    /**
+     * @param mixed $scienceCourse
+     */
+    public function setScienceCourse($scienceCourse)
+    {
+        $this->scienceCourse = $scienceCourse;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEnglishCourse()
+    {
+        return $this->englishCourse;
+    }
+
+    /**
+     * @param mixed $englishCourse
+     */
+    public function setEnglishCourse($englishCourse)
+    {
+        $this->englishCourse = $englishCourse;
     }
 
 }

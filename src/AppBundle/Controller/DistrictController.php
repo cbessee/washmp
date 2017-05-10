@@ -8,12 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\K12District;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class DistrictController extends Controller
 {
     /**
      * @param Request $request
      * @Route("admin/districts/", name="list_districts")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function listAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
@@ -26,6 +28,7 @@ class DistrictController extends Controller
     /**
      * @param Request $request
      * @Route("admin/district/new", name="new_district")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function newAction(Request $request) {
         $form = $this->createForm(K12DistrictFormType::class);
@@ -60,6 +63,7 @@ class DistrictController extends Controller
      * @param Request $request
      * @param K12District $district
      * @Route("admin/district/{id}/edit", name="edit_district")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function editAction(Request $request, K12District $district) {
         $form = $this->createForm(K12DistrictFormType::class, $district);
@@ -95,6 +99,7 @@ class DistrictController extends Controller
      * @param Request $request
      * @param K12District $district
      * @Route("admin/district/{id}/delete", name="delete_district")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      */
     public function deleteAction(Request $request, K12District $district) {
         $em = $this->getDoctrine()->getManager();
