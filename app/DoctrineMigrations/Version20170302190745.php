@@ -19,7 +19,6 @@ class Version20170302190745 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE K12School ADD school_id VARCHAR(255) NOT NULL');
-        $this->addSql('ALTER TABLE fos_user DROP center_id');
     }
 
     /**
@@ -31,6 +30,5 @@ class Version20170302190745 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE K12School DROP school_id');
-        $this->addSql('ALTER TABLE fos_user ADD center_id INT DEFAULT NULL');
     }
 }
