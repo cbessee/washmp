@@ -19,7 +19,6 @@ class Version20170501182237 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE Student CHANGE state_student_id state_student_id BIGINT DEFAULT NULL, CHANGE district_student_id district_student_id BIGINT DEFAULT NULL');
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_789E96AFA021FDA4 ON Student (district_student_id)');
         $this->addSql('ALTER TABLE fos_user ADD k12center_id INT DEFAULT NULL, ADD is_wa_mesa TINYINT(1) NOT NULL');
         $this->addSql('ALTER TABLE fos_user ADD CONSTRAINT FK_957A647918CC2F69 FOREIGN KEY (k12center_id) REFERENCES K12Center (k12center_id)');
         $this->addSql('CREATE INDEX IDX_957A647918CC2F69 ON fos_user (k12center_id)');
