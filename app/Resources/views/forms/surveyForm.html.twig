@@ -1,0 +1,417 @@
+{{ form_start(seniorSurveyForm) }}
+<div class="form-body">
+    {{ form_row(seniorSurveyForm.student, {
+        'label': 'Student',
+    }) }}
+    <h4 >How satisfied are you with the following MESA services and activities?</h4>
+<div class="row form-ratings">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-1 form-rating">
+            Not At All Satisfied
+        </div>
+        <div class="col-sm-1 form-rating">
+            Somewhat Satisfied
+        </div>
+        <div class="col-sm-1 form-rating">
+            Moderately Satisfied
+        </div>
+        <div class="col-sm-1 form-rating">
+            Very Satisfied
+        </div>
+        <div class="col-sm-1 form-rating">
+            Extremely Satisfied
+        </div>
+        <div class="col-sm-1 form-rating">
+            N/A
+        </div>
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.afterSchoolRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.afterSchoolRating, 'After School', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.afterSchoolRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row rating-row">
+        <div class="col-sm-12">
+            {{ form_errors(seniorSurveyForm.classRating) }}
+        </div>
+        <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.classRating, 'Class', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.classRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.fieldTripsRating) }}
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.fieldTripsRating, 'Field Trips', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.fieldTripsRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.internshipsRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.internshipsRating, 'Internships', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.internshipsRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.juniorSeniorProgramRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.afterSchoolRating, 'Junior-Senior Program', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.juniorSeniorProgramRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.competitionsMesaDayRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.competitionsMesaDayRating, 'MESA Competitions / Day', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.competitionsMesaDayRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.mesaClubRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.mesaClubRating, 'MESA Club', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.mesaClubRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.mentoringRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.mentoringRating, 'Mentoring / Tutoring', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.mentoringRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.saturdayAcademyRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.saturdayAcademyRating, 'Saturday Academy', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.saturdayAcademyRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.sbacEocRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.sbacEocRating, 'SBAC or EOC Prep', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.sbacEocRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.summerProgramRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.summerProgramRating, 'Summer Programs', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.summerProgramRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row rating-row">
+        <div class="col-sm-2">
+            <b>Workshops</b>
+        </div>
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.collegeWorkshopRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.collegeWorkshopRating, '     College Preparedness', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.collegeWorkshopRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.financialAidWorkshopRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.financialAidWorkshopRating, '     Financial Aid', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.financialAidWorkshopRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.satActWorkshopRating) }}
+
+       </div>
+       <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.satActWorkshopRating, '     SAT / ACT Prep', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.satActWorkshopRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+    <h4>Where there any other MESA activities participated in?</h4>
+  <div class="row form-ratings">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-1 form-rating">
+            Not At All Satisfied
+        </div>
+        <div class="col-sm-1 form-rating">
+            Somewhat Satisfied
+        </div>
+        <div class="col-sm-1 form-rating">
+            Moderately Satisfied
+        </div>
+        <div class="col-sm-1 form-rating">
+            Very Satisfied
+        </div>
+        <div class="col-sm-1 form-rating">
+            Extremely Satisfied
+        </div>
+        <div class="col-sm-1 form-rating">
+            N/A
+        </div>
+    </div>
+    <div class="col-sm-12">
+
+        {{ form_errors(seniorSurveyForm.otherActivitiesRating) }}
+    </div>
+    <div class="col-md-2">
+        {{ form_widget(seniorSurveyForm.otherActivities) }}
+    </div>
+    <div class="row rating-row">
+        {%  for choice in seniorSurveyForm.otherActivitiesRating %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+    <h4>Future Goals</h4>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(seniorSurveyForm.createdPlan) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(seniorSurveyForm.discussedPlan) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(seniorSurveyForm.planHelpfullness) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(seniorSurveyForm.appliedCollege) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(seniorSurveyForm.acceptedCollege) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(seniorSurveyForm.receivedScholarships) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(seniorSurveyForm.futurePlans) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(seniorSurveyForm.notAttendingReason) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(seniorSurveyForm.notAttendingOther) }}
+        </div>
+    </div>
+    <h4>Please indicate your reponse to the following items:</h4>
+    <div class="row form-ratings">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-1 form-rating">
+            Strongly Disagree
+        </div>
+        <div class="col-sm-1 form-rating">
+            Disagree
+        </div>
+        <div class="col-sm-1 form-rating">
+            Neutral
+        </div>
+        <div class="col-sm-1 form-rating">
+            Agree
+        </div>
+        <div class="col-sm-1 form-rating">
+            Strongly Agree
+        </div>
+        <div class="col-sm-1 form-rating">
+            N/A
+        </div>
+    </div>
+   <div class="row rating-row">
+       <div class="col-sm-12">
+           {{ form_errors(seniorSurveyForm.payingCollege) }}
+
+       </div>
+        <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.payingCollege, 'Paying for college will be a challenge', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.payingCollege %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row rating-row">
+        <div class="col-sm-12">
+            {{ form_errors(seniorSurveyForm.financialAid) }}
+
+        </div>
+        <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.financialAid, 'Completing the financial aid precess was a challenge', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.financialAid %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row rating-row">
+        <div class="col-sm-12">
+            {{ form_errors(seniorSurveyForm.livingAway) }}
+        </div>
+        <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.livingAway, 'Living away from home will be a challenge', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.livingAway %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row rating-row">
+        <div class="col-sm-12">
+            {{ form_errors(seniorSurveyForm.parentalSupport) }}
+        </div>
+        <div class="col-sm-2">
+            {{ form_label(seniorSurveyForm.parentalSupport, 'My parents want me to go to college', {'attr': {'class': 'rating-label'}}) }}
+        </div>
+        {%  for choice in seniorSurveyForm.parentalSupport %}
+            <div class="col-sm-1 survey-rating">
+                {{ form_widget(choice, {'label': false} ) }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_row(seniorSurveyForm.comments) }}
+        </div>
+    </div>
+
+</div>
+{% if app.request.get('_route') != 'show_survey_form' %}
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+                <button class="btn btn-circle green" type="submit" formnovalidate>Save</button>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{{ form_end(seniorSurveyForm) }}
+{% if app.request.get('_route') == 'show_survey_form' %}
+    <div class="form-actions">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-9">
+                <a href="{{ path('edit_survey_form', {'id': student.id, 'survey': seniorSurvey.seniorSurveyId}) }}"><button class="btn btn-circle green" ><i class="fa fa-pencil"></i> Edit</button></a>
+            </div>
+        </div>
+    </div>
+{% endif %}

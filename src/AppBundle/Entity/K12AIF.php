@@ -92,7 +92,7 @@ class K12AIF
     private $grade;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable=true)
      */
     private $GPA;
 

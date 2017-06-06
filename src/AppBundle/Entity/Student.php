@@ -290,10 +290,16 @@ class Student
      */
     private $K12AIFs;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\SeniorSurvey", mappedBy="student")
+     */
+    private $SeniorSurveys;
+
     public function __construct()
     {
         $this->dateCreated = new \DateTime();
         $this->K12AIFs = new ArrayCollection();
+        $this->SeniorSurveys = new ArrayCollection();
     }
 
     /**
@@ -1043,6 +1049,23 @@ class Student
     {
         $this->districtStudentID = $districtStudentID;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSeniorSurveys()
+    {
+        return $this->SeniorSurveys;
+    }
+
+    /**
+     * @param mixed $SeniorSurveys
+     */
+    public function setSeniorSurveys($SeniorSurveys)
+    {
+        $this->SeniorSurveys = $SeniorSurveys;
+    }
+
 
     function __toString()
     {

@@ -1,0 +1,39 @@
+{%  extends 'base.html.twig' %}
+
+{% form_theme annualIntakeForm 'forms/rows.html.twig' %}
+
+{%  block body %}
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="{{ path('homepage') }}">Home</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{{ path('show_student', {'id': student.id}) }}">{{ student.lastName }}, {{ student.firstName }}</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="{{ path('show_aif_form', {'id': student.id, 'aif_id': aif.k12AifID}) }}">{{ aif.currentAcademicYear }} AIF</a>
+            </li>
+        </ul>
+    </div>
+    <h1 class="page-title">AIF <small>View the {{ aif.currentAcademicYear }} AIF Form for {{ student.firstName }}, {{ student.lastName }}</small></h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box red-mint">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-user"></i>
+                        <span class="caption-subject bold uppercase">Annual Intake Form</span>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    {{ include('forms/aifForm.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%  endblock %}

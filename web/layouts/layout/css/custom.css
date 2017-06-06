@@ -33,3 +33,30 @@
     font-size: 28px;
     font-weight: bold;
 }
+
+.form-rating, .rating-label {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.form-ratings {
+    margin: 2rem 0rem;
+    text-align: center;
+}
+.survey-rating > .radio-inline {
+    display: block !important;
+    margin: auto;
+    text-align: center;
+}
+.survey-rating > .radio-inline > label.required {
+    display: block !important;
+}
+.survey-rating > .radio-inline > label.required > input {
+    position: relative;
+}
+.rating-row {
+    margin-bottom: 1.5rem;
+}
+.help-block {
+    color: red !important;
+}
