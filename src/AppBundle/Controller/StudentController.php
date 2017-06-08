@@ -86,6 +86,7 @@ class StudentController extends Controller
         return $this->render('student/show.html.twig', [
             'student' => $student,
             'aifForms' => $student->getK12AIFs(),
+            'seniorSurveys' => $student->getSeniorSurveys(),
         ]);
     }
 

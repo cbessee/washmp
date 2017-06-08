@@ -1,6 +1,6 @@
 {%  extends 'base.html.twig' %}
 
-{% form_theme annualIntakeForm 'forms/rows.html.twig' %}
+{% form_theme seniorSurveyForm 'forms/rows.html.twig' %}
 
 {%  block body %}
     <div class="page-bar">
@@ -14,11 +14,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{{ path('edit_aif_form', {'id': student.id, 'aif_id': aif.k12AifID}) }}">Edit AIF</a>
+                <a href="{{ path('edit_survey_form', {'id': student.id, 'survey_id': seniorSurvey.seniorSurveyID }) }}">Edit Senior Survey</a>
             </li>
         </ul>
     </div>
-    <h1 class="page-title">Edit AIF <small>Edit values for {{ student.firstName }} {{ student.lastName }}'s {{ aif.currentAcademicYear }} AIF</small></h1>
+    <h1 class="page-title">Edit Senior Survey <small>Edit values for {{ student.firstName }} {{ student.lastName }}'s Senior Survey</small></h1>
 
     <div class="row">
         <div class="col-md-12">
@@ -26,11 +26,11 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="fa fa-user"></i>
-                        <span class="caption-subject bold uppercase">Edit Annual Intake Form</span>
+                        <span class="caption-subject bold uppercase">Edit Senior Survey</span>
                     </div>
                 </div>
                 <div class="portlet-body form">
-                    {{ include('forms/aifForm.html.twig') }}
+                    {{ include('forms/surveyForm.html.twig') }}
                 </div>
             </div>
         </div>

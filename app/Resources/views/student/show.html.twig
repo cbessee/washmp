@@ -114,4 +114,62 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box red-mint">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-user"></i>
+                        <span class="caption-subject bold uppercase">Senior Survey</span>
+                    </div>
+                    <div class="actions">
+                        {% if not seniorSurveys %}
+                            <a href="{{ path('new_survey', {'id': student.id}) }}" class="btn btn-circle btn-default">
+                                <i class="fa fa-bars"></i>
+                                New Senior Survey
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="table-scrollable">
+                        {%  if seniorSurveys %}
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Created At</th>
+                                <th>Updated At</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for form in seniorSurveys %}
+                                    <tr>
+                                        <td>{{ form.dateCreated|date('m/d/Y H:i:s')}}</td>
+                                        <td>{{ form.dateModified|date('m/d/Y H:i:s') }}</td>
+                                        <td>
+                                            <a href="{{ path('show_survey_form', {'id': student.id, 'survey_id': form.seniorSurveyID}) }}" class="btn btn-circle btn-default">
+                                                <i class="fa fa-user"></i>
+                                                View Details
+                                            </a>
+                                            <a href="{{ path('edit_survey_form', {'id': student.id, 'survey_id': form.seniorSurveyID}) }}" class="btn btn-circle btn-default">
+                                                <i class="fa fa-pencil"></i>
+                                                Edit
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                            <p>No senior survey has been submitted for this student.</p>
+                        {% endif %}
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 {%  endblock %}

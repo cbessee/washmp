@@ -1,6 +1,6 @@
 {%  extends 'base.html.twig' %}
 
-{% form_theme annualIntakeForm 'forms/rows.html.twig' %}
+{% form_theme seniorSurveyForm 'forms/rows.html.twig' %}
 
 {%  block body %}
     <div class="page-bar">
@@ -14,11 +14,11 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <a href="{{ path('show_aif_form', {'id': student.id, 'aif_id': aif.k12AifID}) }}">{{ aif.currentAcademicYear }} AIF</a>
+                <a href="{{ path('show_survey_form', {'id': student.id, 'survey_id': seniorSurvey.seniorSurveyID}) }}">Senior Survey</a>
             </li>
         </ul>
     </div>
-    <h1 class="page-title">AIF <small>View the {{ aif.currentAcademicYear }} AIF Form for {{ student.firstName }}, {{ student.lastName }}</small></h1>
+    <h1 class="page-title">Senior Survey <small>View the Senior Survey for {{ student.firstName }}, {{ student.lastName }}</small></h1>
 
     <div class="row">
         <div class="col-md-12">
@@ -26,11 +26,11 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="fa fa-user"></i>
-                        <span class="caption-subject bold uppercase">Annual Intake Form</span>
+                        <span class="caption-subject bold uppercase">Senior Survey</span>
                     </div>
                 </div>
                 <div class="portlet-body form">
-                    {{ include('forms/aifForm.html.twig') }}
+                    {{ include('forms/surveyForm.html.twig') }}
                 </div>
             </div>
         </div>

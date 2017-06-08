@@ -182,7 +182,8 @@ class SeniorSurveyFormType extends AbstractType
                     'Family obligations' => 'Family obligations',
                     'Do not know what I want to study' => 'Do not know what I want to study',
                     'Other' => 'Other'
-                ]
+                ],
+                'required' => false,
             ])
             ->add('notAttendingOther', null, [
                 'label' => 'If you selected "Other" what is the main reason for your decision?',

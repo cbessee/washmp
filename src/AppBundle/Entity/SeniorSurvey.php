@@ -165,8 +165,7 @@ class SeniorSurvey
     private $futurePlans;
 
     /**
-     * @Assert\NotBlank()
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $notAttendingReason;
 
@@ -199,6 +198,32 @@ class SeniorSurvey
      * @ORM\Column(type="text", nullable=true)
      */
     private $comments;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $dateCreated;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $dateModified;
+
+    /**
+     * @param mixed $dateCreated
+     */
+    public function setDateCreated($dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function updateModifiedDate()
+    {
+        $this->setDateModified(new \DateTime());
+    }
 
     /**
      * @return mixed
@@ -720,6 +745,10 @@ class SeniorSurvey
     public function __construct()
     {
         $this->futurePlans = new ArrayCollection();
+        $this->setDateCreated(new \DateTime());
+        if ($this->getDateModified() == null) {
+            $this->setDateModified(new \DateTime());
+        }
     }
 
 

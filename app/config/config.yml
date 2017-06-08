@@ -45,6 +45,10 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: AppBundle\Entity\User
+    from_email:
+            address:        noreply@mesaportal.com
+            sender_name:    WA Mesa Portal
+
     registration:
             form:
                 name: mesaportal_user_registration
