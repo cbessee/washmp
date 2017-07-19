@@ -228,6 +228,30 @@ class SeniorSurvey
     /**
      * @return mixed
      */
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateModified()
+    {
+        return $this->dateModified;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCompetitonsMesaDayRating()
+    {
+        return $this->competitonsMesaDayRating;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getAfterSchoolRating()
     {
         return $this->afterSchoolRating;

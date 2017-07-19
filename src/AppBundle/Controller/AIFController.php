@@ -6,6 +6,7 @@ use AppBundle\AppBundle;
 use AppBundle\Entity\K12AIF;
 use AppBundle\Form\AnnualIntakeFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Student;
@@ -55,6 +56,7 @@ class AIFController extends Controller
 
     /**
      * @Route("/student/{id}/aif/{aif_id}", name="show_aif_form")
+     * @ParamConverter("AIF", class="AppBundle:K12AIF", options={"id" = "aif_id"})
      * @Security("has_role('ROLE_ADMIN')")
      */
     public function showAction(Request $request, Student $student, K12AIF $AIF)
@@ -69,6 +71,7 @@ class AIFController extends Controller
 
     /**
      * @Route("student/{id}/aif/{aif_id}/edit", name="edit_aif_form")
+     * @ParamConverter("AIF", class="AppBundle:K12AIF", options={"id" = "aif_id"})
      * @Security("has_role('ROLE_ADMIN')")
      */
     public function editAction(Request $request, Student $student, K12AIF $AIF )

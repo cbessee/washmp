@@ -6,6 +6,7 @@ use AppBundle\AppBundle;
 use AppBundle\Entity\SeniorSurvey;
 use AppBundle\Form\SeniorSurveyFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Student;
@@ -55,6 +56,7 @@ class SeniorSurveyController extends Controller
 
     /**
      * @Route("/student/{id}/survey/{survey_id}", name="show_survey_form")
+     * @ParamConverter("seniorSurvey", class="AppBundle:SeniorSurvey", options={"id" = "survey_id"})
      * @Security("has_role('ROLE_ADMIN')")
      */
     public function showAction(Request $request, Student $student, SeniorSurvey $seniorSurvey)
@@ -69,6 +71,7 @@ class SeniorSurveyController extends Controller
 
     /**
      * @Route("student/{id}/survey/{survey_id}/edit", name="edit_survey_form")
+     * @ParamConverter("seniorSurvey", class="AppBundle:SeniorSurvey", options={"id" = "survey_id"})
      * @Security("has_role('ROLE_ADMIN')")
      */
     public function editAction(Request $request, Student $student, SeniorSurvey $seniorSurvey )
