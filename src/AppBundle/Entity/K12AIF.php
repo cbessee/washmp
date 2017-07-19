@@ -97,7 +97,7 @@ class K12AIF
     private $GPA;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $collegeGoal;
 
@@ -356,6 +356,7 @@ class K12AIF
     {
         $this->careers->removeElement($careerCluster);
     }
+
 
     /**
      * @return ArrayCollection|CareerCluster[]

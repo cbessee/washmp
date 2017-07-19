@@ -100,7 +100,7 @@ class AIFController extends Controller
             ]);
         }
 
-        return $this->render('aif/edit.html.twig', [
+        return $this->render('AIF/edit.html.twig', [
             'annualIntakeForm' => $form->createView(),
             'aif' => $AIF,
             'student' => $student
