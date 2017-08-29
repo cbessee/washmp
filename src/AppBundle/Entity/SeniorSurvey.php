@@ -200,16 +200,16 @@ class SeniorSurvey
     private $comments;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $dateCreated;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $dateModified;
 
-    /**
+   /**
      * @param mixed $dateCreated
      */
     public function setDateCreated($dateCreated)
@@ -218,7 +218,16 @@ class SeniorSurvey
     }
 
     /**
+     * @param mixed $dateModified
+     */
+    public function setDateModified($dateModified)
+    {
+        $this->dateModified = $dateModified;
+    }
+
+    /**
      * @ORM\PrePersist
+     * @ORM\PreUpdate
      */
     public function updateModifiedDate()
     {
