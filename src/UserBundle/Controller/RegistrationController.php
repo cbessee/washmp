@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\UserBundle\Controller;
+namespace UserBundle\Controller;
 
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
