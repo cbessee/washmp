@@ -52,7 +52,7 @@ class RegistrationController extends BaseController
 
                 $userManager->updateUser($user);
 
-                $transport = new \Swift_SendmailTransport('/usr/sbin/sendmail -bm');
+                $transport = new \Swift_SendmailTransport('/usr/sbin/sendmail -t');
                 $mailer = new \Swift_Mailer($transport);
                 $message = (new \Swift_Message())
                     ->setSubject('New MESA Portal User Registered')
