@@ -21,7 +21,7 @@ use Swift_Mailer;
 
 class RegistrationController extends BaseController
 {
-    public function registerAction(Request $request, Swift_Mailer $mailer)
+    public function registerAction(Request $request)
     {
         /** @var $formFactory FactoryInterface */
         $formFactory = $this->get('fos_user.registration.form.factory');
@@ -53,7 +53,8 @@ class RegistrationController extends BaseController
                 $userManager->updateUser($user);
 
                 $transport = new \Swift_SendmailTransport('/usr/sbin/sendmail -bm');
-                $message = (new \Swift_Message($transport))
+                $mailer = new \Swift_Mailer($transport);
+                $message = (new \Swift_Message())
                     ->setSubject('New MESA Portal User Registered')
                     ->setFrom('noreply@mesaportal.com')
                     ->setTo('cbessee52@gmail.com')
